@@ -93,6 +93,8 @@
 -(void)pan:(UIPanGestureRecognizer*)p{
     if(self.state == YIMRefreshStateRefreshing)
         return;
+    if (self.hidden)
+        return;
     CGPoint point = [p translationInView:self.scrollView];
     if (p.state == UIGestureRecognizerStateBegan) {
         if (self.scrollView.contentOffset.y > 0){
