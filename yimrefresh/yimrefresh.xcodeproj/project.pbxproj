@@ -18,7 +18,6 @@
 		5CEE252A1FE1093600EA171F /* YIMHeaderRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEE25291FE1093600EA171F /* YIMHeaderRefreshView.m */; };
 		5CEE252C1FE10ACA00EA171F /* yimrefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE252B1FE10ACA00EA171F /* yimrefresh.bundle */; };
 		5CEE252E1FE2137600EA171F /* yimrefresh.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE252D1FE2137600EA171F /* yimrefresh.podspec */; };
-		5CEE25301FE2147600EA171F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE252F1FE2147600EA171F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 		5CEE25291FE1093600EA171F /* YIMHeaderRefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YIMHeaderRefreshView.m; sourceTree = "<group>"; };
 		5CEE252B1FE10ACA00EA171F /* yimrefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = yimrefresh.bundle; sourceTree = "<group>"; };
 		5CEE252D1FE2137600EA171F /* yimrefresh.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yimrefresh.podspec; sourceTree = SOURCE_ROOT; };
-		5CEE252F1FE2147600EA171F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +81,6 @@
 				5CEE25131FE1031600EA171F /* LaunchScreen.storyboard */,
 				5CEE25161FE1031600EA171F /* Info.plist */,
 				5CEE25171FE1031600EA171F /* main.m */,
-				5CEE252F1FE2147600EA171F /* README.md */,
 				5CEE252D1FE2137600EA171F /* yimrefresh.podspec */,
 			);
 			path = yimrefresh;
@@ -161,7 +158,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEE25301FE2147600EA171F /* README.md in Resources */,
 				5CEE25151FE1031600EA171F /* LaunchScreen.storyboard in Resources */,
 				5CEE25121FE1031600EA171F /* Assets.xcassets in Resources */,
 				5CEE25101FE1031600EA171F /* Main.storyboard in Resources */,
