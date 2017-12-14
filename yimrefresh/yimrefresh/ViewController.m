@@ -23,7 +23,6 @@
             [self.tableView endRefresh];
         });
     }];
-    self.tableView.yim_header.tintColor = [UIColor redColor];
     self.tableView.dataSource = self;
     
     // Do any additional setup after loading the view, typically from a nib.
