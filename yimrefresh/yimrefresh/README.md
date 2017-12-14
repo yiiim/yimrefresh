@@ -8,6 +8,10 @@ emmmmmm......我不是故意背叛iOS的。
 
 ![Untitled2.gif](http://ybz-1251448224.cossh.myqcloud.com/dir/Untitled2.gif)
 
+导入方式：
+
+> pod 'yimrefresh'
+
 使用方式：
 
 ```

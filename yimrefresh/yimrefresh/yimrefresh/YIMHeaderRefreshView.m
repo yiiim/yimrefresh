@@ -92,6 +92,7 @@
 -(void)pan:(UIPanGestureRecognizer*)p{
     if(self.state == YIMRefreshStateRefreshing)
         return;
+    [self.superview bringSubviewToFront:self];
     //拖拽的坐标
     CGPoint point = [p translationInView:self.scrollView];
     NSLog(@"%@",NSStringFromCGPoint(point));
