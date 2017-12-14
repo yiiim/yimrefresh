@@ -12,6 +12,7 @@
 #define YIMHeaderImageWidth 30
 
 @interface YIMHeaderRefreshView(){
+    CGFloat _startOffY;
 }
 @property(nonatomic,strong)UIImageView *imageView;
 @property(nonatomic,strong)UIView *contentView;
@@ -92,10 +93,16 @@
 -(void)pan:(UIPanGestureRecognizer*)p{
     if(self.state == YIMRefreshStateRefreshing)
         return;
-    [self.superview bringSubviewToFront:self];
-    //拖拽的坐标
     CGPoint point = [p translationInView:self.scrollView];
-    NSLog(@"%@",NSStringFromCGPoint(point));
+    if (p.state == UIGestureRecognizerStateBegan) {
+        if (self.scrollView.contentOffset.y > 0){
+            _startOffY = self.scrollView.contentOffset.y;
+        }else{
+            _startOffY = 0;
+        }
+    }
+    point.y = point.y - _startOffY;
+    [self.superview bringSubviewToFront:self];
     //拖拽到刷新的Y坐标
     CGFloat pullingOffsetY = 150;
     
