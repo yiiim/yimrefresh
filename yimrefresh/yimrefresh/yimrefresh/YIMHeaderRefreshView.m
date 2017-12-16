@@ -31,7 +31,8 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     CGRect frame = self.contentView.frame;
-    frame.origin = CGPointMake(CGRectGetMidX(self.bounds) - CGRectGetWidth(frame)/2, CGRectGetHeight(self.bounds) - CGRectGetHeight(frame));
+    //减掉5是因为阴影漏出来了
+    frame.origin = CGPointMake(CGRectGetMidX(self.bounds) - CGRectGetWidth(frame)/2, CGRectGetHeight(self.bounds) - CGRectGetHeight(frame) - 5);
     self.contentView.frame = frame;
 }
 /**scroll contentOffset变更时*/
