@@ -13,8 +13,20 @@
 @interface UIScrollView (YIMRefresh)
 
 @property(nonatomic,strong)YIMHeaderRefreshView *yim_header;
+
+/**
+ 移除刷新控件
+ */
 -(void)removeYIMHeaderRefresh;
+
+/**
+ 添加刷新控件
+
+ @param refreshBlock 执行刷新block
+ */
 -(void)addYIMHeaderRefresh:(void(^)(void))refreshBlock;
+
+/** 结束刷新 */
 -(void)endRefresh;
 
 @end

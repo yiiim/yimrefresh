@@ -15,6 +15,8 @@ emmmmmm......我不是故意背叛iOS的。
 使用方式：
 
 ```
+#import <UIScrollView+YIMRefresh.h>
+
 [self.tableView addYIMHeaderRefresh:^{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView endRefresh];
