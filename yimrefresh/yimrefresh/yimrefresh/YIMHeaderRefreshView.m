@@ -38,7 +38,7 @@
 /**scroll contentOffset变更时*/
 -(void)scrollViewContentOffsetDidChange:(CGPoint)offset{
     if (offset.y<0) {
-        self.scrollView.contentOffset = CGPointMake(offset.x, 0);
+        _scrollView.contentOffset = CGPointMake(offset.x, 0);
     }
 }
 -(void)setTintColor:(UIColor *)tintColor{
@@ -96,10 +96,10 @@
         return;
     if (self.hidden)
         return;
-    CGPoint point = [p translationInView:self.scrollView];
+    CGPoint point = [p translationInView:_scrollView];
     if (p.state == UIGestureRecognizerStateBegan) {
-        if (self.scrollView.contentOffset.y > 0){
-            _startOffY = self.scrollView.contentOffset.y;
+        if (_scrollView.contentOffset.y > 0){
+            _startOffY = _scrollView.contentOffset.y;
         }else{
             _startOffY = 0;
         }

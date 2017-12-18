@@ -18,11 +18,11 @@ typedef NS_ENUM(NSInteger, YIMRefreshState) {
     YIMRefreshStateRefreshing
 };
 
-@interface YIMRefreshView : UIView
-
+@interface YIMRefreshView : UIView{
+    __weak UIScrollView *_scrollView;
+}
 @property(nonatomic,strong)UIColor *tintColor;
-@property(nonatomic,weak,readonly)UIScrollView *scrollView;
-@property(nonatomic,weak,readonly)UIPanGestureRecognizer *pan;
+@property(nonatomic,strong,readonly)UIPanGestureRecognizer *pan;
 @property(nonatomic,assign)YIMRefreshState state;
 
 

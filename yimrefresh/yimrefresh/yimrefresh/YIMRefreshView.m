@@ -10,10 +10,8 @@
 
 #define YIMRefreshControlHeight 100
 
-@interface YIMRefreshView(){
-    __weak UIScrollView *_scrollView;
-    __weak UIPanGestureRecognizer *_pan;
-}
+@interface YIMRefreshView()
+@property(nonatomic,strong,readwrite)UIPanGestureRecognizer *pan;
 @end
 
 @implementation YIMRefreshView
@@ -31,11 +29,12 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
+    [self removeObservers];
     if (newSuperview && [newSuperview isKindOfClass:[UIScrollView class]]) {
         self.frame = CGRectMake(0, -YIMRefreshControlHeight, CGRectGetWidth(newSuperview.frame), YIMRefreshControlHeight);
         _scrollView = (UIScrollView*)newSuperview;
         _scrollView.alwaysBounceVertical = true;
-        _pan = _scrollView.panGestureRecognizer;
+        self.pan = _scrollView.panGestureRecognizer;
         [self addObservers];
         [self didAddToScrollView];
     }
@@ -46,12 +45,13 @@
     NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
     [_scrollView addObserver:self forKeyPath:@"contentOffset" options:options context:NULL];
     [_scrollView addObserver:self forKeyPath:@"contentSize" options:options context:NULL];
-    [_pan addObserver:self forKeyPath:@"state" options:options context:NULL];
+    [self.pan addObserver:self forKeyPath:@"state" options:options context:NULL];
 }
 - (void)removeObservers{
-    [_scrollView removeObserver:self forKeyPath:@"contentOffset"];
-    [_scrollView removeObserver:self forKeyPath:@"contentSize"];
-    [_pan removeObserver:self forKeyPath:@"state"];
+    [self.superview removeObserver:self forKeyPath:@"contentOffset"];
+    [self.superview removeObserver:self forKeyPath:@"contentSize"];
+    [self.pan removeObserver:self forKeyPath:@"state"];
+    self.pan = nil;
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if (!self.userInteractionEnabled) return;
@@ -71,12 +71,6 @@
 }
 -(void)didAddToScrollView{
     
-}
--(UIScrollView*)scrollView{
-    return _scrollView;
-}
--(UIPanGestureRecognizer*)pan{
-    return _pan;
 }
 -(void)scrollViewContentOffsetDidChange:(CGPoint)offset{}
 -(void)scrollViewContentSizeDidChange:(CGSize)size{}
